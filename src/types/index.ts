@@ -20,3 +20,7 @@ export interface JobStatus {
   updatedAt: Date;
   status: "pending" | "processing" | "completed" | "failed";
 }
+
+export interface ScrapeRequest {
+  theme: string;
+}
