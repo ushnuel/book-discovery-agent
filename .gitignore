@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules/
+
+# TypeScript build output
+dist/
+build/
+
+# Local environment variables
+.env
+
+# IDE and editor settings
+.vscode/
+.idea/
