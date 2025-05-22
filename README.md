@@ -157,9 +157,11 @@ Response:
 
 ```json
 {
-  "jobId": "uuid",
-  "status": "pending",
-  "message": "Book scraping job created successfully"
+  "message": "Book scraping job created successfully",
+  "data": {
+    "status": "pending",
+    "jobId": "uuid"
+  }
 }
 ```
 
@@ -171,11 +173,13 @@ Response:
 
 ```json
 {
-  "id": "uuid",
-  "status": "completed",
-  "books": [...],
-  "createdAt": "2023-11-20T12:00:00Z",
-  "updatedAt": "2023-11-20T12:01:00Z"
+    "data": {
+        "id": "4a752c76-8740-414b-b52a-117bc0db785b",
+        "status": "completed",
+        "createdAt": "2025-05-21T16:45:15.878Z",
+        "updatedAt": "2025-05-21T16:46:29.757Z",
+        "books": [...],
+    }
 }
 ```
 
@@ -187,21 +191,24 @@ Response:
 
 ```json
 {
-  "books": [
-    {
-      "title": "Book Title",
-      "author": "Author Name",
-      "currentPrice": 29.99,
-      "originalPrice": 39.99,
-      "description": "Book description...",
-      "productUrl": "https://...",
-      "aiSummary": "AI-generated summary...",
-      "relevanceScore": 85,
-      "discountAmount": 10.0,
-      "discountPercentage": 25,
-      "valueScore": 2.83
-    }
-  ]
+  "data": {
+    "status": "completed",
+    "books": [
+      {
+        "title": "Book Title",
+        "author": "Author Name",
+        "currentPrice": 29.99,
+        "originalPrice": 39.99,
+        "description": "Book description...",
+        "productUrl": "https://...",
+        "aiSummary": "AI-generated summary...",
+        "relevanceScore": 85,
+        "discountAmount": 10.0,
+        "discountPercentage": 25,
+        "valueScore": 2.83
+      }
+    ]
+  }
 }
 ```
 
@@ -212,3 +219,21 @@ Response:
 3. Configure the webhook to receive data from the Book Discovery Agent
 4. Add a Google Sheets action to store the results
 5. Save and activate the scenario
+
+## Project Deliverables
+
+### Make.com Scenario Configuration
+
+![Scenario Configuration one](/assets/screenshots/scenario-config1.PNG)
+
+![Scenario Configuration two](/assets/screenshots/scenario-config2.PNG)
+
+![Scenario Configuration three](/assets/screenshots/scenario-config3.PNG)
+
+### Scraped Output Sample
+
+![Scraped Output Sample](/assets/screenshots/scraped-output.PNG)
+
+### AI Summaries and Scores
+
+![AI Summaries and Scores](/assets/screenshots/ai-summaries-scores.PNG)
