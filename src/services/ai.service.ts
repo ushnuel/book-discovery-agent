@@ -3,18 +3,20 @@ import { Book } from "../types";
 
 export class AIService {
   private readonly openai: OpenAI;
+  private readonly model: string;
 
   constructor() {
     this.openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
     });
+    this.model = process.env.OPENAI_MODEL ?? "gpt-4o";
   }
 
   async enrichBook(book: Book, theme: string): Promise<Book> {
     try {
       // Generate summary
       const summaryResponse = await this.openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: this.model,
         messages: [
           {
             role: "system",
@@ -31,7 +33,7 @@ export class AIService {
 
       // Calculate relevance score
       const relevanceResponse = await this.openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: this.model,
         messages: [
           {
             role: "system",

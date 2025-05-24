@@ -2,24 +2,22 @@ import { v4 as uuidv4 } from "uuid";
 
 import { JobStatus } from "../types";
 import { AIService } from "./ai.service";
-import { MakeService } from "./make.service";
 import { ScraperService } from "./scraper.service";
 
 export class JobService {
   private readonly aiService: AIService;
-  private readonly makeService: MakeService;
   private readonly scraperService: ScraperService;
   private readonly jobs: Map<string, JobStatus> = new Map();
 
   constructor() {
     this.aiService = new AIService();
-    this.makeService = new MakeService();
     this.scraperService = new ScraperService();
   }
 
   async createJob(theme: string): Promise<string> {
     const jobId = uuidv4();
     const job: JobStatus = {
+      theme,
       id: jobId,
       status: "pending",
       createdAt: new Date(),
@@ -53,9 +51,6 @@ export class JobService {
         books.map((book) => this.aiService.enrichBook(book, theme))
       );
 
-      // Send results to Make.com
-      await this.makeService.sendResults(enrichedBooks);
-
       // Update job status
       job.status = "completed";
       job.books = enrichedBooks;
@@ -66,5 +61,14 @@ export class JobService {
       job.error =
         error instanceof Error ? error.message : "Unknown error occurred";
     }
+  }
+
+  getJobHistory(): JobStatus[] {
+    return Array.from(this.jobs.values());
+  }
+
+  deleteJob(jobId: string): void {
+    const job = this.getJobStatus(jobId);
+    if (job) this.jobs.delete(jobId);
   }
 }

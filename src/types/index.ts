@@ -14,6 +14,7 @@ export interface Book {
 
 export interface JobStatus {
   id: string;
+  theme: string;
   books?: Book[];
   error?: string;
   createdAt: Date;
