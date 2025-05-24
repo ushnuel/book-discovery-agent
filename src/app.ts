@@ -28,6 +28,10 @@ const resultsLimiter = rateLimit({
 });
 
 // Routes
+app.get("/", (req: express.Request, res: express.Response) => {
+  res.json({ message: "API is ready", data: { version: 1 } });
+});
+
 app.post(
   "/scrape",
   (req: express.Request<{}, {}, ScrapeRequest>, res: express.Response) => {
