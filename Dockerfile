@@ -16,7 +16,7 @@ COPY . .
 # Install required OS-level dependencies for Playwright and build the application
 RUN npx playwright install-deps && \
 	npx playwright install && \
-	npm run build
+	npm run build:docker
 
 # Expose port
 EXPOSE 3000

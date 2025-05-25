@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "dev": "ts-node src/app.ts",
-    "build": "rimraf dist && tsc && npx playwright install chromium",
+    "build": "rimraf dist && tsc",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [
