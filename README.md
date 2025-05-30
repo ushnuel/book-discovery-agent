@@ -219,21 +219,3 @@ Response:
 3. Configure the webhook to receive data from the Book Discovery Agent
 4. Add a Google Sheets action to store the results
 5. Save and activate the scenario
-
-## Project Deliverables
-
-### Make.com Scenario Configuration
-
-![Scenario Configuration one](/assets/screenshots/scenario-config1.PNG)
-
-![Scenario Configuration two](/assets/screenshots/scenario-config2.PNG)
-
-![Scenario Configuration three](/assets/screenshots/scenario-config3.PNG)
-
-### Scraped Output Sample
-
-![Scraped Output Sample](/assets/screenshots/scraped-output.PNG)
-
-### AI Summaries and Scores
-
-![AI Summaries and Scores](/assets/screenshots/ai-summaries-scores.PNG)
